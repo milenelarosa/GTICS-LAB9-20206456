@@ -111,25 +111,7 @@
         "C:copia.png 2\n" +
         "P:plagio.png 3", "mapa_del_juego.txt");
     }
-
-      // Función para leer archivos de texto
-      function leerArchivos() {
-      // Obtenemos los archivos del form y creamos un lector para cada archivo
-      let files = document.getElementById("myFiles").files;
-      for(let i=0; i<files.length; i++) {
-      let reader = new FileReader();
-      reader.fileName = files[i].name;
-      // Hay que crear un evento onload para mostrar el contenido una vez leído
-      reader.onload = function(e) {
-      // Mostramos los datos leídos y "filtrados" a HTML en un nuevo párrafo
-      let p = document.createElement("p");
-      document.body.appendChild(p);
-      p.innerHTML = "Contenido del archivo: " + e.target.fileName + "<br>" + escapeHTML(e.target.result).replaceAll("\n", "<br>");
-    };
-      // Leemos el archivo
-      reader.readAsText(files[i]);
-    }
-    }
+      
 </script>
 
 </body>
