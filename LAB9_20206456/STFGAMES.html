@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+  <link rel="stylesheet" th:href="@{/css/fontawesome-all.min.css}">
+
+  <style>
+    .btn-p {
+      display: inline-block;
+      padding: 12px 20px;
+      color:white;
+      background-color: #0ea134;
+      text-decoration: none;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 17px;
+    }
+  </style>
+</head>
+<body style="padding-left: 20px">
+<br><br>
+<h1 style="font-size: 60px"> El juego del Laberinto</h1>
+
+<button id="descargar" class="btn-p">Subir laberinto</button>
+
+<script>
+  const guardarArchivoDeTexto = (contenido, nombre) => {
+    const a = document.createElement("a");
+    const archivo = new Blob([contenido], { type: 'text/plain' });
+    const url = URL.createObjectURL(archivo);
+    a.href = url;
+    a.download = nombre;
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+  const $botonDescargar = document.querySelector("#descargar");
+  $botonDescargar.onclick = () => {
+    guardarArchivoDeTexto("OSOOOOOOOOO\n" +
+      "OOOOOPOOOAO\n" +
+      "IOOAOOOOOOO\n" +
+      "OOOOOCOOOOO\n" +
+      "OOOOOOOOPOO\n" +
+      "OOOOOOSOOOF\n" +
+      "POOOOOOOOAO\n" +
+      "OOOCOAOOOOO\n" +
+      "OOOOOOOSOOO\n" +
+      "OAOOOOOOOOC\n" +
+      "OOOOPOOOAOO\n" +
+      "\n" +
+      "I:#FFFF00\n" +
+      "F:#008000\n" +
+      "O:#add8e6\n" +
+      "A:#000000\n" +
+      "S:suplantacion.png 1\n" +
+      "C:copia.png 2\n" +
+      "P:plagio.png 3", "mapa_del_juego.txt");
+  }
+</script>
+
+</body>
+</html>
